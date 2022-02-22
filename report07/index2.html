@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- reser css -->
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <title>report07</title>
+    <style>
+        .wrap{
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .header,.slider,.footer{
+            width: 100%;
+        }
+        .sec{
+            flex: 1;
+            height: 200px;
+        }
+        /* header */
+        .header{
+            position: relative;
+            height: 100px;
+        }
+        .header .inner{
+            /* position: relative; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo{
+            margin-top: 15px;
+        }
+        .nav{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .main-nav{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .main-nav>li{
+            border: 1px solid #000;
+            padding: 5px 20px;
+            position: relative;
+            text-align: center;
+        }
+        .main-nav>li>a{
+            padding: 0 20px;
+        }
+        .main-nav>li::before{
+            content: '';
+            display: block;
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            top: 100px;
+            height: 0;
+            background-color: #ccc;
+            transition: 0.15s;
+        }
+        .main-nav>li.active::before{
+            display: block;
+            height: 200px;
+        }
+        .sub-nav{
+            display:none;
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 100px;
+            z-index: 11;
+            margin: 0;
+            padding: 0;      
+            background-color: #000;       
+        }
+        .sub-nav.active{
+            display: block;
+        }
+        .sub-nav ul{
+           display: flex;
+           justify-content: right;
+        }
+        .sub-nav li{
+            margin: 0;
+            padding: 5px 5.4px;
+            border: 1px solid #000;
+            text-align: center;
+            color: #fff;
+        }
+        .sub-nav li:hover{
+            background-color: #fff;
+            color: #000;
+        }
+        .sub-nav a{
+            padding: 0 20px;
+        }
+
+
+
+        /* slider */
+        .slider{
+            height: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide{
+            height: 300px;
+        }
+        .slides{
+            display: flex;
+            width: 1200px;
+            height: 300px;
+        }
+        .slides img{
+            width: 1200px;
+        }
+        .slides li{
+            transition: 0.3s;
+        }
+        .prev{
+            position: absolute;
+            left: 10px;
+            top: 130px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            text-indent: -999999px;
+        }
+        .next{
+            position: absolute;
+            right: 10px;
+            top: 130px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            text-indent: -999999px;
+        }
+
+     
+        /* section */
+        .sec h2{
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .notice{
+  
+        }
+        .notice-list li{
+            line-height: 30px;
+            margin-left: 10px;
+        }
+        .gallery{
+ 
+        }
+
+        .banner{
+            overflow: hidden;
+        }
+
+        .footer{
+            
+            height: 100px;
+            
+
+        }
+        .footer h1{
+            width: 100px;
+        }
+        .footer .copyright{
+            flex: 1;
+            text-align: center;
+        }
+        .footer .container{
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        }
+        .footer .f-sit{
+            /* position: absolute; */
+            /* right: 0;
+            top: 0; */
+            border: 1px solid #666;
+            border-radius: 2px;
+            padding: 5px 10px;
+            font-size: 13px;
+            display: none;
+            cursor: pointer;
+        }
+        .footer .f-sit:hover{
+            background-color: #333;
+            color: #fff;
+        }
+        .footer .f-list{
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + 6px);
+            border: 1px solid #666;
+            border-radius: 2px;
+            background-color: #fff;
+            color: #222;
+            padding: 5px 37px;
+            display: none;
+        }
+        .footer .f-list.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrap">
+        <header class="header">
+                <div class="inner">
+                    <div class="logo">
+                        <h1>
+                            <a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a>
+                        </h1>
+                    </div>
+                    <nav class="nav">
+                        <ul class="main-nav">
+                            <li><a href="#">MENU-1</a></li>
+                            <li><a href="#">MENU-2</a></li>
+                            <li><a href="#">MENU-3</a></li>
+                            <li><a href="#">MENU-4</a></li>
+                        </ul>
+                    </nav>                        
+                    <div class="sub-nav">
+                        <ul>
+                            <li><a href="#">SUBMENU-1</a></li>
+                            <li><a href="#">SUBMENU-2</a></li>
+                            <li><a href="#">SUBMENU-3</a></li>
+                            <li><a href="#">SUBMENU-4</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">SUBMENU-1</a></li>
+                            <li><a href="#">SUBMENU-2</a></li>
+                            <li><a href="#">SUBMENU-3</a></li>
+                            <li><a href="#">SUBMENU-4</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">SUBMENU-1</a></li>
+                            <li><a href="#">SUBMENU-2</a></li>
+                            <li><a href="#">SUBMENU-3</a></li>
+                            <li><a href="#">SUBMENU-4</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">SUBMENU-1</a></li>
+                            <li><a href="#">SUBMENU-2</a></li>
+                            <li><a href="#">SUBMENU-3</a></li>
+                            <li><a href="#">SUBMENU-4</a></li>
+                        </ul>
+                    </div>  
+                </div>
+        </header>
+        <section class="slider">
+            <div class="slide">
+                <ul class="slides">
+                    <li><a href="#"><img src="./images/main-banner01.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/main-banner02.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/main-banner03.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/main-banner04.jpg" alt=""></a></li>
+                </ul>
+            </div>
+
+        </section>
+        <section class="sec notice">
+            <h2>공지사항</h2>
+            <ul class="notice-list">
+                <li><a href="#">· 코로나19 변이</a></li>
+                <li><a href="#">· 설연휴 고객응대서비스 변경</a></li>
+                <li><a href="#">· 코로나 기간 영업 시간 안내</a></li>
+                <li><a href="#">· 신규 고객 이벤트</a></li>
+                <li><a href="#">· 신규 고객 이벤트</a></li>
+            </ul>
+        </section>
+        <section class="sec gallery">
+            <h2>갤러리</h2>
+        </section>
+        <section class="sec banner">
+            <h2>배너</h2>
+            <img src="./images/banner.jpg" alt="배너">
+        </section>        
+        <footer class="footer">
+            <div class="container">
+                <h1>
+                    <a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a>
+                </h1>
+    
+                <div class="copyright">
+                    Copyright
+                </div>
+    
+                <div class="f-sit">
+                    <span>패밀리사이트 바로가기</span>
+                    <ul class="f-list">
+                        <li><a href="#">더본코리아1</a></li>
+                        <li><a href="#">더본코리아2</a></li>
+                        <li><a href="#">더본코리아3</a></li>
+                        <li><a href="#">더본코리아4</a></li>
+                        <li><a href="#">더본코리아5</a></li>                   
+                    </ul>
+                </div>  
+            </div>
+           
+          
+        </footer>
+    </section>
+    
+    <script>
+        // menu
+        let mainNav = document.querySelector('.main-nav');
+        let subNav = document.querySelector('.sub-nav');
+        console.log(mainNav,subNav);
+
+        mainNav.addEventListener('mouseenter',function(){
+            subNav.classList.toggle('active');
+        })
+        subNav.addEventListener("mouseleave",function(){
+            subNav.classList.remove('active');
+        })
+
+
+        // slider
+       let slides = document.querySelectorAll('.slides li');
+       let tmp = 0;
+        
+        // console.log(slides.length);
+       setInterval(function(){
+        tmp+=100;
+        if(tmp==400){
+            tmp=0;
+        }
+         for(let idx=0; idx<slides.length; idx++){
+            slides[idx].style.transform='translateX(-'+ tmp +'%)';
+         }
+       },3000)
+
+    //    f-sit
+    let fSit = document.querySelector('.f-sit');
+    let fList = document.querySelector('.f-list');
+    fSit.addEventListener('click',function(){
+        fList.classList.toggle('show');
+    })
+
+    </script>
+</body>
+</html>

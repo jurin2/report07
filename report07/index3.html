@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- reser css -->
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <title>report07</title>
+    <style>
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        .wrap{
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .header,.slider,.footer{
+            width: 100%;
+        }
+        .sec{
+            flex: 1;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            height: 100px;
+        }
+        h1{
+           margin-top: 15px;
+        }
+        .main-nav{
+            display: flex;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .main-nav li{
+            padding: 10px 20px;
+        }
+        .sub-nav::before{
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 200px;
+            background-color: teal;
+        }
+        .main-nav li.active::before{
+            display: block;
+            height: 200px;
+        }
+        .sub-nav{
+            /* display: none; */
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: 100;
+        }
+        .sub-nav ul{
+            float: left;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <h1>
+                <a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a>
+            </h1>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="#">MENU-1</a></li>
+                    <li><a href="#">MENU-2</a></li>
+                    <li><a href="#">MENU-3</a></li>
+                    <li><a href="#">MENU-4</a></li>
+                </ul>
+                <div class="sub-nav">
+                    <ul>
+                        <li><a href="#">MENU-1</a></li>
+                        <li><a href="#">MENU-2</a></li>
+                        <li><a href="#">MENU-3</a></li>
+                        <li><a href="#">MENU-4</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">MENU-1</a></li>
+                        <li><a href="#">MENU-2</a></li>
+                        <li><a href="#">MENU-3</a></li>
+                        <li><a href="#">MENU-4</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">MENU-1</a></li>
+                        <li><a href="#">MENU-2</a></li>
+                        <li><a href="#">MENU-3</a></li>
+                        <li><a href="#">MENU-4</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">MENU-1</a></li>
+                        <li><a href="#">MENU-2</a></li>
+                        <li><a href="#">MENU-3</a></li>
+                        <li><a href="#">MENU-4</a></li>
+                    </ul>     
+                </div>
+            </nav>
+        </header>
+        <section class="slider">슬라이더</section>
+        <section class="sec notice">공지사항</section>
+        <section class="sec gallery">갤러리</section>
+        <section class="sec banner">배너</section>
+        <footer class="footer">푸터</footer>
+    </div>
+    
+    <script>
+        // menu
+        let mainNav = document.querySelectorAll('.main-nav li');
+        let subNav = document.querySelector('.sub-nav');
+        // console.log(mainNav,subNav);
+
+        // mainNav.addEventListener('mouseenter',function(){
+        //     subNav.classList.toggle('active');
+        //     this.style.backgroundColor = '#000';
+        //     this.style.color = '#fff';
+        // })
+        
+        // mainNav.addEventListener('mouseleave',function(){
+        //     this.style.backgroundColor = '#fff';
+        //     this.style.color = '#000';
+        // })
+        
+        // subNav.addEventListener('mouseleave',function(){
+        //     subNav.classList.remove('active');
+        // })
+
+    </script>
+</body>
+</html>
